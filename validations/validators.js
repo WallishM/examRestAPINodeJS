@@ -20,3 +20,17 @@ exports.checkProduct = checkSchema({
         }
     }
 });
+
+exports.checkUser = checkSchema({
+    email:{
+        isEmail:{
+            errorMessage: 'Email should be like xxx@xxx.xxx',
+        }
+    },
+    password:{
+        isLength:{
+            errorMessage: 'Password should be at least 4 chars long',
+            options: {min: 4}
+        }
+    }
+});

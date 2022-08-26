@@ -22,7 +22,6 @@ exports.show = async (req, res, next) => {
 exports.store = async (req, res, next) => {
     try {
         validationHandler(req);
-        // TODO: data validation
         let product = new Product(req.body);
         product = await product.save();
         res.json({message: 'Product added', product});
@@ -33,7 +32,7 @@ exports.store = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
     try {
-        // TODO: data validation
+        validationHandler(req);
         let product = await Product.findById(req.params.id);
         Object.assign(product, req.body);
         product = await product.save();

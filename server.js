@@ -8,6 +8,7 @@ const app = express();
 
 const port = process.env.PORT || 5008;
 
+const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/product');
 
 mongoose.Promise = global.Promise;
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use('/user', authRoutes);
 app.use('/product', productRoutes);
 
 app.listen(port, () => console.log(`####    Server is running on port ${port} - work in progress    ####`));
