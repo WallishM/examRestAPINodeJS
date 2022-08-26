@@ -57,33 +57,132 @@
                         "content": {
                             "application/json": {
                               "schema": {
-                                "$ref": "#/components/schemas/Product"
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
                               }
                             }
-                    }
+                        }
+                     }
                 }
-            }},
+            },
             "post": {
-                "description": "",
+                "summary": "Create a new product",
+                "description": "Create a new product",
                 "parameters": [],
+                "requestBody":{
+                    "description": "Product values",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+                ,
                 "responses": {
                     "200": {
-                        "description": "OK"
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                              }
+                            }
+                        }
                     }
                 }
-            }
         },
-        "/name": {
+        "/product/{idProduct}": {
             "get": {
-                "description": "",
-                "parameters": [],
+                "summary": "Find a product by Id",
+                "description": "Retrun the product corresponding to the id",
+                "parameters": [
+                    {
+                        "name": "idProduct",
+                        "in": "path",
+                        "description": "ID of product to return",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
-                        "description": "OK"
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a product from its Id",
+                "description": "Delete a product from its Id",
+                "parameters": [
+                    {
+                        "name": "idProduct",
+                        "in": "path",
+                        "description": "ID of product to delete",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    }                    
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product deleted"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a product find by Id",
+                "description": "Update a product find by Id",
+                "parameters": [
+                    {
+                        "name": "idProduct",
+                        "in": "path",
+                        "description": "ID of product to update",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                    }
+                ],
+                "requestBody":{
+                    "description": "New product values",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
-    } 
+    }
 }
-
