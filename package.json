@@ -1,0 +1,32 @@
+{
+  "name": "examrestapinodejs",
+  "version": "1.0.0",
+  "description": "Exam -> Make an API REST app in NodeJS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WallishM/examRestAPINodeJS.git"
+  },
+  "author": "B. SAUSSOL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WallishM/examRestAPINodeJS/issues"
+  },
+  "homepage": "https://github.com/WallishM/examRestAPINodeJS#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "mongoose": "^6.5.3",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19",
+    "volleyball": "^1.5.1"
+  }
+}
