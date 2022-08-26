@@ -1,4 +1,5 @@
 const Product = require('../models/product');
+const validationHandler = require('../validations/validationHandler');
 
 exports.list = async (req, res, next) => {
     try {
@@ -20,6 +21,7 @@ exports.show = async (req, res, next) => {
 
 exports.store = async (req, res, next) => {
     try {
+        validationHandler(req);
         // TODO: data validation
         let product = new Product(req.body);
         product = await product.save();
