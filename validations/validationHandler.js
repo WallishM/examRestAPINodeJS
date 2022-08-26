@@ -9,6 +9,6 @@ module.exports = req => {
         });
         error.statusCode = 422;
         error.validation = validationErrors.array();
-        throw error;
+        throw error.message;
     }
 };

@@ -12,7 +12,7 @@ exports.signup = async (req, res, next) => {
         if(existingUser){
             let error = new Error('Email already used. Please login or change email');
             error.statusCode = 403;
-            throw error;
+            throw error.message;
         }
     
         let user = new User();
@@ -52,7 +52,7 @@ exports.login = async (req, res, next) => {
         let token = jwt.encode({id: user.id}, config.jwtSecret);
 
         res.json({user, token});
-        
+
     } catch (err) {
         next(err);
     }
