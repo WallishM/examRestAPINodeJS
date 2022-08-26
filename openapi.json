@@ -1,0 +1,89 @@
+{
+    "openapi":"3.0.2",
+    "info": {
+      "title":"Product API",
+      "version":"1.0"
+    },
+    "servers": [
+      {"url":"http://localhost:5008/"}
+    ],
+    "components": {
+        "schemas": {
+            "Product": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "minLength": 4,
+                        "example": "velo"
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "float",
+                        "minimum": 0.01,
+                        "example": "12.0"
+                    },
+                    "brand": {
+                        "type": "string",
+                        "minLength": 4,
+                        "example": "Decathlon"
+                   }
+                }
+            },
+            "User": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "example": "xxx@xxx.xxx"
+                    },
+                    "password": {
+                        "type": "string",
+                        "minLength": 4
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "/product": {
+            "get": {
+                "summary": "Return all products",
+                "description": "Return all products",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                              "schema": {
+                                "$ref": "#/components/schemas/Product"
+                              }
+                            }
+                    }
+                }
+            }},
+            "post": {
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/name": {
+            "get": {
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    } 
+}
+
