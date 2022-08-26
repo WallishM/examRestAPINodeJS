@@ -8,6 +8,8 @@ const app = express();
 
 const port = process.env.PORT || 5008;
 
+const productRoutes = require('./routes/product');
+
 mongoose.Promise = global.Promise;
 mongoose
     .connect('mongodb+srv://test:test@cluster0.ipvsdny.mongodb.net/?retryWrites=true&w=majority')
@@ -19,5 +21,7 @@ app.use(volleyball);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use('/product', productRoutes);
 
 app.listen(port, () => console.log(`####    Server is running on port ${port} - work in progress    ####`));
